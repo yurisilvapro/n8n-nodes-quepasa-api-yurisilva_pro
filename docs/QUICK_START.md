@@ -81,7 +81,7 @@ Edite o `package.json` criado:
 
 ```json
 {
-  "name": "n8n-nodes-quepasa",
+  "name": "n8n-nodes-quepasa-api-yurisilva_pro",
   "version": "1.0.0",
   "description": "n8n nodes for QuePasa WhatsApp API - Complete implementation",
   "keywords": [
@@ -91,14 +91,14 @@ Edite o `package.json` criado:
     "quepasa"
   ],
   "license": "MIT",
-  "homepage": "https://github.com/seu-usuario/n8n-nodes-quepasa",
+  "homepage": "https://github.com/yurisilvapro/n8n-nodes-quepasa-api-yurisilva_pro",
   "author": {
     "name": "Seu Nome",
     "email": "seu@email.com"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/seu-usuario/n8n-nodes-quepasa.git"
+    "url": "https://github.com/yurisilvapro/n8n-nodes-quepasa-api-yurisilva_pro.git"
   },
   "main": "index.js",
   "scripts": {
