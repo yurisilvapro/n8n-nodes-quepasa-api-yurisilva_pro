@@ -1,6 +1,6 @@
 {
   "name": "n8n-nodes-quepasa-api-yurisilva_pro",
-  "version": "2.2.2",
+  "version": "2.3.0",
   "description": "Complete n8n integration for QuePasa WhatsApp API - 48 operations, multi-account support, 100% API v4 coverage",
   "keywords": [
     "n8n-community-node-package",
