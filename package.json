@@ -21,7 +21,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/yurisilvapro/n8n-quepasa-api-yurisilva_pro.git"
+    "url": "git+https://github.com/yurisilvapro/n8n-quepasa-api-yurisilva_pro.git"
   },
   "main": "index.js",
   "scripts": {
@@ -44,8 +44,7 @@
       "dist/credentials/QuePasaApi.credentials.js"
     ],
     "nodes": [
-      "dist/nodes/QuePasa/QuePasa.node.js",
-      "dist/nodes/QuePasaTrigger/QuePasaTrigger.node.js"
+      "dist/nodes/QuePasa/QuePasa.node.js"
     ]
   },
   "devDependencies": {
