@@ -9,16 +9,8 @@ export class QuePasaApi implements ICredentialType {
   name = 'quePasaApi';
   displayName = 'QuePasa API';
   documentationUrl = 'https://github.com/nocodeleaks/quepasa';
+  icon = 'file:quepasa.svg' as any;
   properties: INodeProperties[] = [
-    {
-      displayName: 'Server URL',
-      name: 'serverUrl',
-      type: 'string',
-      default: 'http://localhost:31000',
-      placeholder: 'http://localhost:31000',
-      description: 'QuePasa server URL',
-      required: true,
-    },
     {
       displayName: 'Accounts',
       name: 'accounts',
@@ -28,6 +20,7 @@ export class QuePasaApi implements ICredentialType {
       },
       default: {},
       placeholder: 'Add Account',
+      description: 'Configure multiple QuePasa accounts',
       options: [
         {
           name: 'account',
@@ -38,8 +31,18 @@ export class QuePasaApi implements ICredentialType {
               name: 'name',
               type: 'string',
               default: '',
-              placeholder: 'Main Account',
+              placeholder: 'My WhatsApp Account',
               description: 'Friendly name to identify this account',
+              required: true,
+            },
+            {
+              displayName: 'Base URL',
+              name: 'baseUrl',
+              type: 'string',
+              default: 'http://localhost:31000',
+              placeholder: 'http://localhost:31000',
+              description: 'QuePasa server URL for this account',
+              required: true,
             },
             {
               displayName: 'Token',
@@ -49,24 +52,9 @@ export class QuePasaApi implements ICredentialType {
                 password: true,
               },
               default: '',
+              placeholder: 'Your API Token',
               description: 'API Token for this account',
               required: true,
-            },
-            {
-              displayName: 'User ID',
-              name: 'userId',
-              type: 'string',
-              default: '',
-              placeholder: 'admin',
-              description: 'User ID for this account',
-            },
-            {
-              displayName: 'Phone Number',
-              name: 'phone',
-              type: 'string',
-              default: '',
-              placeholder: '5511999999999',
-              description: 'Phone number associated with this account',
             },
           ],
         },
@@ -85,7 +73,7 @@ export class QuePasaApi implements ICredentialType {
 
   test: ICredentialTestRequest = {
     request: {
-      baseURL: '={{$credentials.serverUrl}}',
+      baseURL: '={{$credentials.accounts?.account?.[0]?.baseUrl}}',
       url: '/info',
       headers: {
         'X-QUEPASA-TOKEN': '={{$credentials.accounts?.account?.[0]?.token}}',

@@ -19,23 +19,28 @@ export async function quePasaApiRequest(
 ): Promise<any> {
   const credentials = await this.getCredentials('quePasaApi');
   
+  // Obter primeira conta configurada
+  const accounts = credentials.accounts as any;
+  const account = accounts?.account?.[0];
+  
+  if (!account) {
+    throw new Error('No QuePasa account configured. Please add at least one account in credentials.');
+  }
+  
+  const baseUrl = account.baseUrl as string;
+  const token = account.token as string;
+  
   const options: IHttpRequestOptions = {
     method,
     body,
     qs,
-    url: `${credentials.serverUrl}${endpoint}`,
+    url: `${baseUrl}${endpoint}`,
     json: true,
+    headers: {
+      'X-QUEPASA-TOKEN': token,
+    },
     ...option,
   };
-
-  // Adicionar token do header
-  const accounts = credentials.accounts as any;
-  if (accounts?.account?.[0]?.token) {
-    options.headers = {
-      ...options.headers,
-      'X-QUEPASA-TOKEN': accounts.account[0].token as string,
-    };
-  }
 
   try {
     return await this.helpers.httpRequest(options);
