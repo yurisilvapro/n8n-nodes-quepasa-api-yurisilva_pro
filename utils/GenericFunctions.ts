@@ -39,11 +39,15 @@ export async function quePasaApiRequest(
     headers: {
       'X-QUEPASA-TOKEN': token,
     },
+    returnFullResponse: false,
     ...option,
   };
 
   try {
-    return await this.helpers.httpRequest(options);
+    const response = await this.helpers.httpRequest(options);
+    // Garantir que retornamos apenas dados JSON serializáveis
+    // Converter para string e voltar para remover referências circulares
+    return JSON.parse(JSON.stringify(response));
   } catch (error) {
     if (error instanceof AxiosError) {
       throw new Error(
