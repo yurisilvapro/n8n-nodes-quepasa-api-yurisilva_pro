@@ -12,53 +12,25 @@ export class QuePasaApi implements ICredentialType {
   icon = 'file:quepasa.svg' as any;
   properties: INodeProperties[] = [
     {
-      displayName: 'Accounts',
-      name: 'accounts',
-      type: 'fixedCollection',
+      displayName: 'Base URL',
+      name: 'baseUrl',
+      type: 'string',
+      default: 'http://localhost:31000',
+      placeholder: 'https://your-server.com',
+      description: 'QuePasa server URL',
+      required: true,
+    },
+    {
+      displayName: 'Token',
+      name: 'token',
+      type: 'string',
       typeOptions: {
-        multipleValues: true,
+        password: true,
       },
-      default: {},
-      placeholder: 'Add Account',
-      description: 'Configure multiple QuePasa accounts',
-      options: [
-        {
-          name: 'account',
-          displayName: 'Account',
-          values: [
-            {
-              displayName: 'Account Name',
-              name: 'name',
-              type: 'string',
-              default: '',
-              placeholder: 'My WhatsApp Account',
-              description: 'Friendly name to identify this account',
-              required: true,
-            },
-            {
-              displayName: 'Base URL',
-              name: 'baseUrl',
-              type: 'string',
-              default: 'http://localhost:31000',
-              placeholder: 'http://localhost:31000',
-              description: 'QuePasa server URL for this account',
-              required: true,
-            },
-            {
-              displayName: 'Token',
-              name: 'token',
-              type: 'string',
-              typeOptions: {
-                password: true,
-              },
-              default: '',
-              placeholder: 'Your API Token',
-              description: 'API Token for this account',
-              required: true,
-            },
-          ],
-        },
-      ],
+      default: '',
+      placeholder: 'Your API Token',
+      description: 'API Token from QuePasa (X-QUEPASA-TOKEN header)',
+      required: true,
     },
   ];
 
@@ -73,10 +45,10 @@ export class QuePasaApi implements ICredentialType {
 
   test: ICredentialTestRequest = {
     request: {
-      baseURL: '={{$credentials.accounts?.account?.[0]?.baseUrl}}',
+      baseURL: '={{$credentials.baseUrl}}',
       url: '/info',
       headers: {
-        'X-QUEPASA-TOKEN': '={{$credentials.accounts?.account?.[0]?.token}}',
+        'X-QUEPASA-TOKEN': '={{$credentials.token}}',
       },
     },
   };

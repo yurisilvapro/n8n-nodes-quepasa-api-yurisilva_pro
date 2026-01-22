@@ -107,29 +107,20 @@ n8n start
 
 ## ✨ Recursos
 
-### 🔐 Autenticação Multi-Conta
+### 🔐 Autenticação Simples
 
-Gerencie múltiplas contas WhatsApp com uma única credencial:
+Configure suas credenciais QuePasa de forma rápida e direta:
 
 ```typescript
 {
-  serverUrl: "http://localhost:31000",
-  accounts: [
-    {
-      name: "Main Account",
-      token: "your-token",
-      userId: "admin",
-      phone: "5511999999999"
-    },
-    {
-      name: "Support Account",
-      token: "another-token",
-      userId: "support",
-      phone: "5511888888888"
-    }
-  ]
+  baseUrl: "http://localhost:31000",
+  token: "your-api-token"
 }
 ```
+
+**Campos:**
+- **Base URL:** URL do seu servidor QuePasa
+- **Token:** Token de autenticação da API (X-QUEPASA-TOKEN)
 
 ### 📤 Envio de Mensagens
 
@@ -288,11 +279,8 @@ Controle de presença e status
 
 No n8n, crie uma nova credencial **QuePasa API**:
 
-- **Server URL:** `http://localhost:31000` (seu servidor QuePasa)
-- **Account Name:** "Main Account"
-- **Token:** Seu token de API
-- **User ID:** "admin"
-- **Phone:** "5511999999999"
+- **Base URL:** `http://localhost:31000` (seu servidor QuePasa)
+- **Token:** Seu token de API (X-QUEPASA-TOKEN)
 
 ### 2. Adicione o Node QuePasa
 

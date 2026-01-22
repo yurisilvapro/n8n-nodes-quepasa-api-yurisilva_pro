@@ -19,16 +19,12 @@ export async function quePasaApiRequest(
 ): Promise<any> {
   const credentials = await this.getCredentials('quePasaApi');
   
-  // Obter primeira conta configurada
-  const accounts = credentials.accounts as any;
-  const account = accounts?.account?.[0];
+  const baseUrl = credentials.baseUrl as string;
+  const token = credentials.token as string;
   
-  if (!account) {
-    throw new Error('No QuePasa account configured. Please add at least one account in credentials.');
+  if (!baseUrl || !token) {
+    throw new Error('QuePasa credentials are incomplete. Please configure Base URL and Token.');
   }
-  
-  const baseUrl = account.baseUrl as string;
-  const token = account.token as string;
   
   const options: IHttpRequestOptions = {
     method,
