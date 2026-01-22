@@ -1,5 +1,5 @@
 {
-  "name": "n8n-nodes-quepasa",
+  "name": "@yurisilva_pro/n8n-nodes-quepasa",
   "version": "2.0.1",
   "description": "Complete n8n integration for QuePasa WhatsApp API - 48 operations, multi-account support, 100% API v4 coverage",
   "keywords": [

@@ -1,11 +1,11 @@
-# n8n-nodes-quepasa
+# @yurisilva_pro/n8n-nodes-quepasa
 
 ![QuePasa Logo](./que-pasa-api-logo.svg)
 
 **Implementação completa da API QuePasa WhatsApp para n8n com suporte multi-conta**
 
-[![npm version](https://badge.fury.io/js/n8n-nodes-quepasa.svg)](https://www.npmjs.com/package/n8n-nodes-quepasa)
-[![npm downloads](https://img.shields.io/npm/dm/n8n-nodes-quepasa.svg)](https://www.npmjs.com/package/n8n-nodes-quepasa)
+[![npm version](https://badge.fury.io/js/%40yurisilva_pro%2Fn8n-nodes-quepasa.svg)](https://www.npmjs.com/package/@yurisilva_pro/n8n-nodes-quepasa)
+[![npm downloads](https://img.shields.io/npm/dm/@yurisilva_pro/n8n-nodes-quepasa.svg)](https://www.npmjs.com/package/@yurisilva_pro/n8n-nodes-quepasa)
 [![TypeScript](https://img.shields.io/badge/TypeScript-100%25-blue?style=flat&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
 [![n8n](https://img.shields.io/badge/n8n-Ready-EA4B71?style=flat)](https://n8n.io/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
@@ -76,7 +76,7 @@ QuePasa é uma micro web-aplicação em Go que fornece uma API RESTful HTTP para
 ### Via npm (quando publicado)
 
 ```bash
-npm install n8n-nodes-quepasa
+npm install @yurisilva_pro/n8n-nodes-quepasa
 ```
 
 ### Instalação Local (desenvolvimento)
